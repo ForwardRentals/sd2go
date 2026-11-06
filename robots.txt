@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Preview only. At launch: Allow: / and Sitemap: https://forwardrentals.github.io/sd2go/sitemap.xml
