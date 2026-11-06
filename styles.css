@@ -228,3 +228,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(215,38,30,.2
   .hero-photo { margin-right: 0; }
   .hero-photo::after { background: linear-gradient(180deg, rgba(13,13,13,.6), rgba(13,13,13,.88)); }
 }
+
+/* Photo credit backlink on the hero photo */
+.photo-credit { position: absolute; right: 14px; bottom: 12px; z-index: 2; font-size: .72rem; color: #fff; opacity: .8; text-decoration: none; background: rgba(0,0,0,.35); padding: 3px 8px; border-radius: 999px; }
+.photo-credit:hover { opacity: 1; text-decoration: underline; }

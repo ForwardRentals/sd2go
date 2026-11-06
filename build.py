@@ -8,8 +8,8 @@ EMAIL = "info@sd2go.com"
 NAV = [("index.html", "Home"), ("accounting.html", "Accounting"), ("computers.html", "Computers"), ("about.html", "About")]
 
 OPTIONS = {
-    "": {"css": "styles.css", "fonts": "family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700", "hero": "hero-sunset.jpg", "hero_alt": "Golden sunset over Howe Sound, BC", "label": "Option 1", "other": ("option-2/", "See option 2")},
-    "option-2/": {"css": "styles-2.css", "fonts": "family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700", "hero": "hero-peak.jpg", "hero_alt": "Snowy BC mountain peak rising above the clouds", "label": "Option 2", "other": ("../", "See option 1")},
+    "": {"css": "styles.css", "fonts": "family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700", "hero": "hero-sunset.jpg", "hero_page": "golden-sunset-over-the-coast", "hero_alt": "Golden sunset over Howe Sound, BC", "label": "Option 1", "other": ("option-2/", "See option 2")},
+    "option-2/": {"css": "styles-2.css", "fonts": "family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700", "hero": "hero-peak.jpg", "hero_page": "peak-above-the-clouds", "hero_alt": "Snowy BC mountain peak rising above the clouds", "label": "Option 2", "other": ("../", "See option 1")},
 }
 
 
@@ -68,7 +68,7 @@ def foot(up):
       <span>&copy; <span id="yr">2026</span> SD2GO. All rights reserved.</span>
       <span>Built by <a href="https://freesitecompany.com">FreeSiteCompany.com</a></span>
     </div>
-    <p class="credits">Landscape photography by <a href="https://thefulltimehobby.com/stock.html">The Full Time Hobby</a>. Other photos from <a href="https://stocksnap.io">StockSnap</a>.</p>
+    <p class="credits">Landscape photography by <a href="https://thefulltimehobby.com/stock">The Full Time Hobby</a>. Other photos from <a href="https://stocksnap.io">StockSnap</a>.</p>
   </div>
 </footer>
 <script src="{up}site.js"></script>
@@ -84,7 +84,7 @@ CTA = """<section class="cta"><div class="wrap">
 """
 
 
-def pages(img, hero, hero_alt):
+def pages(img, hero, hero_alt, hero_page):
     return {
 "index.html": ("SD2GO | Small Business Accounting & Computer Service in Surrey, BC",
  "SD2GO helps Surrey small businesses with accounting, income tax, and computer sales and service. Email or request a quote.",
@@ -99,6 +99,7 @@ f"""<section class="hero"><div class="wrap hero-grid">
     </div>
   </div>
   <div class="hero-photo"><img src="{img}{hero}" width="1400" height="863" alt="{hero_alt}" fetchpriority="high"></div>
+  <a class="photo-credit" href="https://thefulltimehobby.com/stock/{hero_page}.html">Photo: The Full Time Hobby</a>
 </div></section>
 
 <section><div class="wrap">
@@ -269,7 +270,7 @@ for opt in OPTIONS:
     up = "../" if opt else ""
     out = os.path.join(here, opt)
     os.makedirs(out, exist_ok=True)
-    for name, (title, desc, body) in pages(up + "images/", OPTIONS[opt]["hero"], OPTIONS[opt]["hero_alt"]).items():
+    for name, (title, desc, body) in pages(up + "images/", OPTIONS[opt]["hero"], OPTIONS[opt]["hero_alt"], OPTIONS[opt]["hero_page"]).items():
         with open(os.path.join(out, name), "w", encoding="utf-8") as f:
             f.write(head(title, desc, name, opt, up) + body + foot(up))
 
