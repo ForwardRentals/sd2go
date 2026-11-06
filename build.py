@@ -8,8 +8,8 @@ EMAIL = "info@sd2go.com"
 NAV = [("index.html", "Home"), ("accounting.html", "Accounting"), ("computers.html", "Computers"), ("about.html", "About")]
 
 OPTIONS = {
-    "": {"css": "styles.css", "fonts": "family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700", "label": "Option 1", "other": ("option-2/", "See option 2")},
-    "option-2/": {"css": "styles-2.css", "fonts": "family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700", "label": "Option 2", "other": ("../", "See option 1")},
+    "": {"css": "styles.css", "fonts": "family=Archivo:wght@700;800;900&family=Inter:wght@400;600;700", "hero": "hero-sunset.jpg", "hero_alt": "Golden sunset over Howe Sound, BC", "label": "Option 1", "other": ("option-2/", "See option 2")},
+    "option-2/": {"css": "styles-2.css", "fonts": "family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700", "hero": "hero-peak.jpg", "hero_alt": "Snowy BC mountain peak rising above the clouds", "label": "Option 2", "other": ("../", "See option 1")},
 }
 
 
@@ -27,7 +27,7 @@ def head(title, desc, page, opt, up):
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="{BASE}images/repair.jpg">
+<meta property="og:image" content="{BASE}images/hero-sunset.jpg">
 <link rel="icon" href="{up}favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,10 +68,7 @@ def foot(up):
       <span>&copy; <span id="yr">2026</span> SD2GO. All rights reserved.</span>
       <span>Built by <a href="https://freesitecompany.com">FreeSiteCompany.com</a></span>
     </div>
-    <p class="credits">Photos via Wikimedia Commons:
-      <a href="https://commons.wikimedia.org/wiki/File:Computer_repair_in_progress.jpg">Vintechcomputerservices</a> (CC BY-SA 4.0),
-      <a href="https://commons.wikimedia.org/wiki/File:Laptop_Repair.jpg">Augustin Wafflart</a> (CC BY 4.0),
-      <a href="https://commons.wikimedia.org/wiki/File:Aurora_electronic_calculator_DT210_08.jpg">Coyau</a> (CC BY-SA 3.0).</p>
+    <p class="credits">Landscape photography by <a href="https://thefulltimehobby.com/stock.html">The Full Time Hobby</a>. Other photos from <a href="https://stocksnap.io">StockSnap</a>.</p>
   </div>
 </footer>
 <script src="{up}site.js"></script>
@@ -87,7 +84,7 @@ CTA = """<section class="cta"><div class="wrap">
 """
 
 
-def pages(img):
+def pages(img, hero, hero_alt):
     return {
 "index.html": ("SD2GO | Small Business Accounting & Computer Service in Surrey, BC",
  "SD2GO helps Surrey small businesses with accounting, income tax, and computer sales and service. Email or request a quote.",
@@ -101,7 +98,7 @@ f"""<section class="hero"><div class="wrap hero-grid">
       <a class="btn btn-ghost" href="mailto:info@sd2go.com">Email us</a>
     </div>
   </div>
-  <div class="hero-photo"><img src="{img}repair.jpg" width="1600" height="1060" alt="Hands working on the inside of a laptop during a repair"></div>
+  <div class="hero-photo"><img src="{img}{hero}" width="1400" height="863" alt="{hero_alt}" fetchpriority="high"></div>
 </div></section>
 
 <section><div class="wrap">
@@ -111,7 +108,7 @@ f"""<section class="hero"><div class="wrap hero-grid">
   </div>
   <div class="split">
     <article class="card">
-      <img src="{img}calculator.jpg" width="1400" height="700" alt="Close-up of an electronic calculator display" loading="lazy">
+      <img src="{img}accounting.jpg" width="960" height="638" alt="Working through numbers on a calculator beside a laptop spreadsheet" loading="lazy">
       <div class="card-body">
         <span class="tag">Accounting</span>
         <h3>Small business accounting &amp; income tax</h3>
@@ -121,7 +118,7 @@ f"""<section class="hero"><div class="wrap hero-grid">
       </div>
     </article>
     <article class="card">
-      <img src="{img}laptop.jpg" width="900" height="1200" alt="Open laptop on a desk with its battery and memory exposed for service" loading="lazy">
+      <img src="{img}computers.jpg" width="960" height="641" alt="Close-up of a computer motherboard with processor socket and memory slots" loading="lazy">
       <div class="card-body">
         <span class="tag">Computers</span>
         <h3>Computer sales &amp; service</h3>
@@ -152,7 +149,7 @@ f"""<section class="page-hero"><div class="wrap">
 </div></section>
 
 <section><div class="wrap feature">
-  <img src="{img}calculator.jpg" width="1400" height="700" alt="Close-up of an electronic calculator display">
+  <img src="{img}calculator.jpg" width="960" height="601" alt="Calculator, pens and a pencil on a folder">
   <div>
     <h2>Numbers you can count on</h2>
     <p>Running a small business is enough work without the paperwork. SD2GO looks after your accounting and your income tax so you can focus on your customers.</p>
@@ -183,12 +180,12 @@ f"""<section class="page-hero"><div class="wrap">
     </ul>
     <p style="margin-top:24px"><a class="btn btn-red" href="contact.html?service=Computers">Request a computer quote</a></p>
   </div>
-  <img src="{img}laptop.jpg" width="900" height="1200" alt="Open laptop on a desk with its battery and memory exposed for service" class="tall">
+  <img src="{img}laptop.jpg" width="960" height="640" alt="Laptop open on a bright desk">
 </div></section>
 
 <section class="alt"><div class="wrap">
   <div class="feature">
-    <img src="{img}repair.jpg" width="1600" height="1060" alt="Hands working on the inside of a laptop during a repair" loading="lazy">
+    <img src="{img}laptop-dark.jpg" width="960" height="640" alt="Laptop keyboard glowing in a dark room" loading="lazy">
     <div>
       <h2>Not sure what's wrong?</h2>
       <p>That's fine. Describe what the computer is doing in the quote form and we'll follow up by email.</p>
@@ -213,7 +210,7 @@ f"""<section class="page-hero"><div class="wrap">
     <p>Instead of hunting down a bookkeeper and a separate tech person, you can reach out to one place for both.</p>
     <div class="hero-actions"><a class="btn btn-red" href="contact.html">Get in touch</a></div>
   </div>
-  <img src="{img}repair.jpg" width="1600" height="1060" alt="Hands working on the inside of a laptop during a repair">
+  <img src="{img}typing.jpg" width="960" height="639" alt="Hands typing on a laptop at a desk">
 </div></section>
 """ + CTA),
 
@@ -272,7 +269,7 @@ for opt in OPTIONS:
     up = "../" if opt else ""
     out = os.path.join(here, opt)
     os.makedirs(out, exist_ok=True)
-    for name, (title, desc, body) in pages(up + "images/").items():
+    for name, (title, desc, body) in pages(up + "images/", OPTIONS[opt]["hero"], OPTIONS[opt]["hero_alt"]).items():
         with open(os.path.join(out, name), "w", encoding="utf-8") as f:
             f.write(head(title, desc, name, opt, up) + body + foot(up))
 

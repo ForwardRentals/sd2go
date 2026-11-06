@@ -210,3 +210,21 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(215,38,30,.2
 .feature img.tall { max-height: 560px; }
 .page-hero.thanks { padding: 96px 0; }
 .contact-box h2 { font-size: 1.6rem; }
+
+/* Full-bleed photo hero (TFTH landscape behind the text) */
+.hero { position: relative; isolation: isolate; }
+.hero-grid { grid-template-columns: 1fr; min-height: min(78vh, 720px); padding: 96px 0; }
+.hero-grid > div:first-child { max-width: 640px; }
+.hero-photo { position: absolute; inset: 0; z-index: -1; margin: 0; }
+.hero-photo::before { display: none; }
+.hero-photo img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: 60% 50%; border-radius: 0; }
+.hero-photo::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(13,13,13,.92) 0%, rgba(13,13,13,.72) 45%, rgba(13,13,13,.2) 100%);
+}
+.hero p.lead { color: #e2e2e2; }
+@media (max-width: 900px) {
+  .hero-grid { min-height: 0; padding: 72px 0; }
+  .hero-photo { margin-right: 0; }
+  .hero-photo::after { background: linear-gradient(180deg, rgba(13,13,13,.6), rgba(13,13,13,.88)); }
+}
